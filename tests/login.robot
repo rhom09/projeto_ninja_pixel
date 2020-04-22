@@ -15,7 +15,7 @@ Login com sucesso
 
 Senha incorreta
     Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais com senha incorreta
+    Quando eu submeto minhas credenciais "papito@ninjapixel.com" com senha incorreta
     Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos"    
 
 *** Keywords ***
@@ -31,8 +31,8 @@ Então devo ser autenticado
     Wait Until Page Contains    Papito
     Close Browser
 
-Quando eu submeto minhas credenciais com senha incorreta
-    Input Text       id:emailId    papito@ninjapixel.com
+Quando eu submeto minhas credenciais "${email}" com senha incorreta
+    Input Text       id:emailId    ${email}
     Input Text       id:passId     123456
     Click Element    class:btn
 
