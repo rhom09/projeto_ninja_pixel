@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20200422 01:53:55.762" generator="Robot 3.1.2 (Python 2.7.17 on linux2)">
+<suite source="/home/rhom09/robocamp/ninjapixel/tests/login.robot" id="s1" name="Login">
+<test id="s1-t1" name="Login com sucesso">
+<kw name="Dado que eu acesso a página de login">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://pixel-web:3000/login</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20200422 01:53:55.903" level="INFO">Opening browser 'chrome' to base url 'http://pixel-web:3000/login'.</msg>
+<status status="PASS" endtime="20200422 01:53:59.479" starttime="20200422 01:53:55.902"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:53:59.479" starttime="20200422 01:53:55.902"></status>
+</kw>
+<kw name="Quando eu submeto minhas credenciais &quot;papito@ninjapixel.com&quot; e &quot;pwd123&quot;">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:emailId</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20200422 01:53:59.484" level="INFO">Typing text 'papito@ninjapixel.com' into text field 'id:emailId'.</msg>
+<status status="PASS" endtime="20200422 01:53:59.861" starttime="20200422 01:53:59.482"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:passId</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200422 01:53:59.863" level="INFO">Typing text 'pwd123' into text field 'id:passId'.</msg>
+<status status="PASS" endtime="20200422 01:54:00.013" starttime="20200422 01:53:59.862"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>class:btn</arg>
+</arguments>
+<msg timestamp="20200422 01:54:00.013" level="INFO">Clicking element 'class:btn'.</msg>
+<status status="PASS" endtime="20200422 01:54:00.121" starttime="20200422 01:54:00.013"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:00.122" starttime="20200422 01:53:59.481"></status>
+</kw>
+<kw name="Então devo ser autenticado">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>Papito</arg>
+</arguments>
+<status status="PASS" endtime="20200422 01:54:00.188" starttime="20200422 01:54:00.123"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200422 01:54:00.273" starttime="20200422 01:54:00.188"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:00.273" starttime="20200422 01:54:00.122"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:00.274" critical="yes" starttime="20200422 01:53:55.901"></status>
+</test>
+<test id="s1-t2" name="Senha incorreta">
+<kw name="Dado que eu acesso a página de login">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>http://pixel-web:3000/login</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20200422 01:54:00.282" level="INFO">Opening browser 'chrome' to base url 'http://pixel-web:3000/login'.</msg>
+<status status="PASS" endtime="20200422 01:54:03.902" starttime="20200422 01:54:00.281"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:03.902" starttime="20200422 01:54:00.280"></status>
+</kw>
+<kw name="Quando eu submeto minhas credenciais com senha incorreta">
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:emailId</arg>
+<arg>papito@ninjapixel.com</arg>
+</arguments>
+<msg timestamp="20200422 01:54:03.904" level="INFO">Typing text 'papito@ninjapixel.com' into text field 'id:emailId'.</msg>
+<status status="PASS" endtime="20200422 01:54:04.296" starttime="20200422 01:54:03.904"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:passId</arg>
+<arg>123456</arg>
+</arguments>
+<msg timestamp="20200422 01:54:04.297" level="INFO">Typing text '123456' into text field 'id:passId'.</msg>
+<status status="PASS" endtime="20200422 01:54:04.484" starttime="20200422 01:54:04.296"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>class:btn</arg>
+</arguments>
+<msg timestamp="20200422 01:54:04.485" level="INFO">Clicking element 'class:btn'.</msg>
+<status status="PASS" endtime="20200422 01:54:04.584" starttime="20200422 01:54:04.484"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:04.584" starttime="20200422 01:54:03.903"></status>
+</kw>
+<kw name="Então devo ver uma mensagem de alerta &quot;Usuário e/ou senha inválidos&quot;">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<doc>Waits until ``text`` appears on the current page.</doc>
+<arguments>
+<arg>${msg}</arg>
+</arguments>
+<status status="PASS" endtime="20200422 01:54:04.883" starttime="20200422 01:54:04.585"></status>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200422 01:54:04.966" starttime="20200422 01:54:04.883"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:04.967" starttime="20200422 01:54:04.585"></status>
+</kw>
+<status status="PASS" endtime="20200422 01:54:04.967" critical="yes" starttime="20200422 01:54:00.278"></status>
+</test>
+<doc>Login
+Sendo um administrador de catálogo
+Quero me autenticar no sistema
+Para que eu possa gerenciar o catálogo de produtos</doc>
+<status status="PASS" endtime="20200422 01:54:04.973" starttime="20200422 01:53:55.765"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Login" pass="2">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
