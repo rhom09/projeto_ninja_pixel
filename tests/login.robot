@@ -5,6 +5,8 @@ Documentation    Login
 ...              Para que eu possa gerenciar o catálogo de produtos
 
 Library    SeleniumLibrary
+# Gancho que é executado toda vez que um caso de teste termina
+Test Teardown   Close Browser
 
 
 *** Test Cases ***
@@ -15,8 +17,13 @@ Login com sucesso
 
 Senha incorreta
     Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais "papito@ninjapixel.com" com senha incorreta
-    Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos"    
+    Quando eu submeto minhas credenciais "papito@ninjapixel.com" e "abc123"
+    Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos"
+
+Email não existe
+    Dado que eu acesso a página de login
+    Quando eu submeto minhas credenciais "404@yahoo.com" e "abc123"
+    Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos"      
 
 *** Keywords ***
 Dado que eu acesso a página de login
@@ -28,14 +35,7 @@ Quando eu submeto minhas credenciais "${email}" e "${pass}"
     Click Element    class:btn
 
 Então devo ser autenticado
-    Wait Until Page Contains    Papito
-    Close Browser
-
-Quando eu submeto minhas credenciais "${email}" com senha incorreta
-    Input Text       id:emailId    ${email}
-    Input Text       id:passId     123456
-    Click Element    class:btn
-
-Então devo ver uma mensagem de alerta "${msg}"
-    Wait Until Page Contains    ${msg}
-    Close Browser               
+    Wait Until Page Contains    Papito    
+# Passamos um argumento(massa de teste), como parametro na keyword
+Então devo ver uma mensagem de alerta "${expect_message}"
+    Wait Until Element Contains    class:alert     ${expect_message}          

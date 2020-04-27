@@ -1,9 +1,4 @@
 
-Email que existe
-    Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais com email não cadastrado
-    Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos."
-
 Email não informado
     Dado que eu acesso a página de login
     Quando eu submeto minhas credenciais sem o email
