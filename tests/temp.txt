@@ -1,10 +1,1 @@
 
-Email não informado
-    Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais sem o email
-    Então devo ver uma mensagem de alerta "Opps. Informe seu email!"
-
-Senha não informada
-    Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais sem a senha
-    Então devo ver uma mensagem de alerta "Opps. Informe sua senha!"  

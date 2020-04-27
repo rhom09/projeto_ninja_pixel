@@ -16,16 +16,31 @@ Login com sucesso
     Então devo ser autenticado
 
 Senha incorreta
-    Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais "papito@ninjapixel.com" e "abc123"
-    Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos"
+    # Cria um template da keyword com os argumentos e nele passo os argumentos criados
+    [Template]      Tentativa de login
+    papito@ninjapixel.com   abc123      Usuário e/ou senha inválidos
 
 Email não existe
-    Dado que eu acesso a página de login
-    Quando eu submeto minhas credenciais "404@yahoo.com" e "abc123"
-    Então devo ver uma mensagem de alerta "Usuário e/ou senha inválidos"      
+    [Template]      Tentativa de login
+    404@yahoo.com   abc123      Usuário e/ou senha inválidos
+
+Email obrigatório
+    [Template]      Tentativa de login
+    ${EMPTY}   abc123      Opps. Informe o seu email!
+
+Senha obrigatória
+    [Template]      Tentativa de login
+    404@yahoo.com   ${EMPTY}      Opps. Informe a sua senha!
 
 *** Keywords ***
+# Keyword documentada, ela vai ter a implementação das steps dentro dela
+# Ela implementa o comportamento inteiro de tentativas de login
+Tentativa de login
+    [Arguments]     ${email}    ${pass}     ${output}
+    Dado que eu acesso a página de login
+    Quando eu submeto minhas credenciais "${email}" e "${pass}"
+    Então devo ver uma mensagem de alerta "${output}"
+
 Dado que eu acesso a página de login
     Open Browser    http://pixel-web:3000/login    chrome
 
