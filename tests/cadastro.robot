@@ -38,8 +38,12 @@ Quando eu faço o cadastro desse produto
     Click Element                       class:product-add
     # Aqui eu passo o nome da variavel mais o valor dela no caso name
     Input Text                          css:input[name=title]           ${product_json['name']}
+
     Click Element                       css:input[placeholder=Gategoria]
-    Click Element                       xpath://span[text()='${product_json['cat']}']
+
+    Wait Until Element Is Visible       class:el-select-dropdown__list
+    Click Element                       xpath://li//span[text()='${product_json['cat']}']
+
     Input Text                          css:input[name=price]           ${product_json['price']}
     Input Text                          css:textarea[name=description]  ${product_json['desc']}
     sleep   5
