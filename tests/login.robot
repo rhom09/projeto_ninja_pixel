@@ -6,7 +6,7 @@ Documentation    Login
 # Importando as actions do projeto
 Resource    ../resources/actions.robot
 # Gancho que é executado toda vez que um caso de teste termina
-Test Teardown   Close Browser
+Test Teardown   Close
 
 
 *** Test Cases ***

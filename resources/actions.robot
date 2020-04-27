@@ -2,16 +2,18 @@
 Documentation   Actions é o arquivo que terá as keywords que implementam os steps
 
 Library    SeleniumLibrary
+# Importa ações do Browser
+Resource    pages/basePage.robot
+# Importa o login with para actions
+Resource    pages/loginPage.robot
 
 *** Keywords ***
 
 Dado que eu acesso a página de login
-    Open Browser    http://pixel-web:3000/login    chrome
+    Open Session
 
 Quando eu submeto minhas credenciais "${email}" e "${pass}"
-    Input Text       id:emailId    ${email}
-    Input Text       id:passId     ${pass}
-    Click Element    class:btn
+    Login With  ${email}  ${pass}
 
 Então devo ser autenticado
     Wait Until Page Contains    Papito    
