@@ -2,5 +2,6 @@
     "name": "Donkey Kong",
     "cat": "Super Nintendo",
     "price": "49.99",
-    "desc": "Um jogo muito divertido!"
+    "desc": "Um jogo muito divertido!",
+    "producers": ["Rare", "Nintendo"]
 }
