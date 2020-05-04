@@ -20,7 +20,26 @@ Disponibilizar produto
     Então devo ver este item no catálogo
 
 Produto duplicado
+    [Tags]      dup
     Dado que eu tenho um novo produto   master.json
     Mas este produto já foi cadastrado
     Quando eu faço o cadastro desse produto
-    Então devo ver a mensagem de alerta     Oops - Este produto já foi cadastrado!    
+    Então devo ver a mensagem de alerta     Oops - Este produto já foi cadastrado!
+
+Nome não informado
+    [Tags]      nome
+    Dado que eu tenho um novo produto   contra.json
+    Quando eu faço o cadastro desse produto
+    Então devo ver uma mensagem informativa     Oops - Informe o nome do produto! 
+
+Categoria não selecionada
+    [Tags]      cat
+    Dado que eu tenho um novo produto   goldenAxe.json
+    Quando eu cadastro sem categoria
+    Então devo ver uma mensagem informativa     Oops - Selecione uma categoria! 
+
+preço não informado
+    [Tags]      preco
+    Dado que eu tenho um novo produto   streetFII.json
+    Quando eu faço o cadastro desse produto
+    Então devo ver uma mensagem informativa     Oops - Informe o preço também!               

@@ -21,7 +21,27 @@ Create New Product
     Upload Photo    ${product_json['image']}
     
     # Clica no botão cadastrar
-    Click Element       id:create-product 
+    Click Element       id:create-product
+
+Create New Product Without Category  
+    [Arguments]     ${product_json}
+
+     # Clica no botão add produto
+    Click Element                       class:product-add
+    # Aqui eu passo o nome da variavel mais o valor dela no caso name
+    Input Text                          css:input[name=title]           ${product_json['name']}
+   
+    # Preenche o preço do produto
+    Input Text                          css:input[name=price]           ${product_json['price']}
+
+    Input Producers     ${product_json['producers']}
+    # Preenche a descrição do produto
+    Input Text                          css:textarea[name=description]  ${product_json['desc']}
+    
+    Upload Photo    ${product_json['image']}
+    
+    # Clica no botão cadastrar
+    Click Element       id:create-product
 
 Upload Photo
     [Arguments]     ${image}    

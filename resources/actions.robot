@@ -64,6 +64,10 @@ Mas este produto já foi cadastrado
 Quando eu faço o cadastro desse produto
     # Importa a keyword de productPage
     Create New Product      ${product_json}
+
+Quando eu cadastro sem categoria
+    Create New Product Without Category  ${product_json}
+
     
 Então devo ver este item no catálogo
     # Usa essa keyword pois o catalogo é uma table, e procuro dentro da class que contem td table
@@ -73,6 +77,11 @@ Então devo ver a mensagem de alerta
     [Arguments]     ${expect_message}
 
     Wait Until Element Contains     class:alert-danger      ${expect_message}
+
+Então devo ver uma mensagem informativa 
+    [Arguments]     ${expect_message}
+
+    Wait Until Element Contains     class:alert-info      ${expect_message}   
 
 ### Remove
 
