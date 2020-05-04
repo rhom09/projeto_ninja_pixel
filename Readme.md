@@ -135,19 +135,19 @@ docker run --name pixel-web --network=skynet -p 3000:3000 -d qaninja/pixel-web
 ## Subindo os containers
 
 ```bash
-sudo docker start pgdb
-sudo docker start pgadmin
-sudo docker start pixel-api
-sudo docker start pixel-web
+docker start pgdb
+docker start pgadmin
+docker start pixel-api
+docker start pixel-web
 ```
 
 ## Parando os containers
 
 ```bash
-sudo docker stop pgdb
-sudo docker stop pgadmin
-sudo docker stop pixel-api
-sudo docker stop pixel-web
+docker stop pgdb
+docker stop pgadmin
+docker stop pixel-api
+docker stop pixel-web
 ```
 
 ## Comandos Docker
