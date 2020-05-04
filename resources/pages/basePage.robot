@@ -13,6 +13,14 @@ Open Session
 
 Close Session
     Close Browser
+
+After Test 
+    Capture Page Screenshot
+
+After Test WCLS
+    Capture Page Screenshot
+    Execute Javascript      localStorage.clear();     
+    
 # Ele abre e faz login na app
 Login Session
     Open Session

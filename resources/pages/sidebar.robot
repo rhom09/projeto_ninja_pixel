@@ -1,4 +1,4 @@
 
 
 *** Variables ***
-${LOGGED_USER}      css:. user .info span
+${LOGGED_USER}      css:.user .info span

@@ -35,9 +35,11 @@ Select Category
 
     # Clica em categoria
     Click Element                       css:input[placeholder=Gategoria]
+    Set Selenium Speed   1
     # Espera que o elemento esteja visivel para pode clicar
     Wait Until Element Is Visible       class:el-select-dropdown__list
     Click Element                       xpath://li//span[text()='${cat}']
+    Set Selenium Speed   0
 
 Input Producers
     [Arguments]     ${producers}

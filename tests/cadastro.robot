@@ -7,8 +7,10 @@ Documentation       Cadastro de produtos
 Resource    ../resources/actions.robot
 
 # Abre(e faz login) e fecha o navegador importando de actions.robot
-Test Setup      Login Session
-Test Teardown   Close Session
+Suite Setup     Login Session
+Suite Teardown  Close Session
+
+Test Teardown   After Test 
 
 *** Test Cases ***
 Disponibilizar produto

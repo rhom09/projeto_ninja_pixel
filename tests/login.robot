@@ -5,8 +5,12 @@ Documentation    Login
 ...              Para que eu possa gerenciar o catálogo de produtos
 # Importando as actions do projeto
 Resource    ../resources/actions.robot
+
+Suite Setup     Open Session
 # Gancho que é executado toda vez que um caso de teste termina
-Test Teardown   Close Session
+Suite Teardown  Close Session
+
+Test Teardown   After Test 
 
 
 *** Test Cases ***
@@ -14,7 +18,9 @@ Login com sucesso
     Dado que eu acesso a página de login
     Quando eu submeto minhas credenciais "papito@ninjapixel.com" e "pwd123"
     Então devo ser autenticado
-
+    # Chama o teardown com a keyword que limpa o LOCALSTORAGE
+    [Teardown]      After Test WCLS
+  
 Senha incorreta
     # Cria um template da keyword com os argumentos e nele passo os argumentos criados
     [Template]      Tentativa de login
