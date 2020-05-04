@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot rpa="false" generated="20200504 12:41:01.039" generator="Robot 3.1.2 (Python 2.7.17 on linux2)">
+<robot rpa="false" generated="20200504 13:28:47.884" generator="Robot 3.1.2 (Python 2.7.17 on linux2)">
 <suite source="/home/rhom09/robocamp/ninjapixel/tests/cadastro.robot" id="s1" name="Cadastro">
 <test id="s1-t1" name="Disponibilizar produto">
-<kw type="setup" name="Open Session" library="basePage">
+<kw type="setup" name="Login Session" library="basePage">
+<kw name="Open Session" library="basePage">
+<kw name="Open Chrome" library="basePage">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
-<arg>http://pixel-web:3000/login</arg>
+<arg>${base_url}/login</arg>
 <arg>chrome</arg>
 </arguments>
-<msg timestamp="20200504 12:41:01.206" level="INFO">Opening browser 'chrome' to base url 'http://pixel-web:3000/login'.</msg>
-<status status="PASS" endtime="20200504 12:41:05.899" starttime="20200504 12:41:01.206"></status>
+<msg timestamp="20200504 13:28:48.081" level="INFO">Opening browser 'chrome' to base url 'http://pixel-web:3000/login'.</msg>
+<status status="PASS" endtime="20200504 13:28:52.721" starttime="20200504 13:28:48.081"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:28:52.722" starttime="20200504 13:28:48.080"></status>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <doc>Sets the implicit wait value used by Selenium.</doc>
 <arguments>
 <arg>10</arg>
 </arguments>
-<status status="PASS" endtime="20200504 12:41:05.903" starttime="20200504 12:41:05.900"></status>
+<status status="PASS" endtime="20200504 13:28:52.727" starttime="20200504 13:28:52.723"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:05.904" starttime="20200504 12:41:01.205"></status>
+<status status="PASS" endtime="20200504 13:28:52.727" starttime="20200504 13:28:48.080"></status>
 </kw>
-<kw name="Dado que eu estou logado" library="actions">
 <kw name="Login With" library="loginPage">
 <arguments>
 <arg>papito@ninjapixel.com</arg>
@@ -33,8 +36,8 @@
 <arg>id:emailId</arg>
 <arg>${email}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:05.906" level="INFO">Typing text 'papito@ninjapixel.com' into text field 'id:emailId'.</msg>
-<status status="PASS" endtime="20200504 12:41:06.550" starttime="20200504 12:41:05.905"></status>
+<msg timestamp="20200504 13:28:52.729" level="INFO">Typing text 'papito@ninjapixel.com' into text field 'id:emailId'.</msg>
+<status status="PASS" endtime="20200504 13:28:53.111" starttime="20200504 13:28:52.728"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -42,35 +45,35 @@
 <arg>id:passId</arg>
 <arg>${pass}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:06.550" level="INFO">Typing text 'pwd123' into text field 'id:passId'.</msg>
-<status status="PASS" endtime="20200504 12:41:06.731" starttime="20200504 12:41:06.550"></status>
+<msg timestamp="20200504 13:28:53.112" level="INFO">Typing text 'pwd123' into text field 'id:passId'.</msg>
+<status status="PASS" endtime="20200504 13:28:53.271" starttime="20200504 13:28:53.112"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>class:btn</arg>
 </arguments>
-<msg timestamp="20200504 12:41:06.732" level="INFO">Clicking element 'class:btn'.</msg>
-<status status="PASS" endtime="20200504 12:41:06.835" starttime="20200504 12:41:06.731"></status>
+<msg timestamp="20200504 13:28:53.272" level="INFO">Clicking element 'class:btn'.</msg>
+<status status="PASS" endtime="20200504 13:28:53.360" starttime="20200504 13:28:53.272"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:06.836" starttime="20200504 12:41:05.905"></status>
+<status status="PASS" endtime="20200504 13:28:53.360" starttime="20200504 13:28:52.727"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:06.836" starttime="20200504 12:41:05.904"></status>
+<status status="PASS" endtime="20200504 13:28:53.361" starttime="20200504 13:28:48.079"></status>
 </kw>
-<kw name="Quando eu faço o cadastro desse produto" library="actions">
+<kw name="Dado que eu tenho um novo produto" library="actions">
 <arguments>
 <arg>dk.json</arg>
 </arguments>
 <kw name="Get File" library="OperatingSystem">
 <doc>Returns the contents of a specified file.</doc>
 <arguments>
-<arg>resources/fixtures/${json_file}</arg>
+<arg>resources/fixtures/${file_name}</arg>
 </arguments>
 <assign>
-<var>${product_file}</var>
+<var>${file}</var>
 </assign>
-<msg timestamp="20200504 12:41:06.839" html="yes" level="INFO">Getting file '&lt;a href="file:///home/rhom09/robocamp/ninjapixel/resources/fixtures/dk.json"&gt;/home/rhom09/robocamp/ninjapixel/resources/fixtures/dk.json&lt;/a&gt;'.</msg>
-<msg timestamp="20200504 12:41:06.840" level="INFO">${product_file} = {
+<msg timestamp="20200504 13:28:53.369" html="yes" level="INFO">Getting file '&lt;a href="file:///home/rhom09/robocamp/ninjapixel/resources/fixtures/dk.json"&gt;/home/rhom09/robocamp/ninjapixel/resources/fixtures/dk.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200504 13:28:53.370" level="INFO">${file} = {
     "name": "Donkey Kong",
     "cat": "Super Nintendo",
     "price": "49.99",
@@ -78,26 +81,37 @@
     "producers": ["Rare", "Nintendo"],
     "image": "donkey-kong.jpg"
 }</msg>
-<status status="PASS" endtime="20200504 12:41:06.841" starttime="20200504 12:41:06.839"></status>
+<status status="PASS" endtime="20200504 13:28:53.370" starttime="20200504 13:28:53.368"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the results.</doc>
 <arguments>
-<arg>json.loads($product_file)</arg>
+<arg>json.loads($file)</arg>
 <arg>json</arg>
 </arguments>
 <assign>
 <var>${product_json}</var>
 </assign>
-<msg timestamp="20200504 12:41:06.847" level="INFO">${product_json} = {u'name': u'Donkey Kong', u'price': u'49.99', u'cat': u'Super Nintendo', u'producers': [u'Rare', u'Nintendo'], u'image': u'donkey-kong.jpg', u'desc': u'Um jogo muito divertido!'}</msg>
-<status status="PASS" endtime="20200504 12:41:06.847" starttime="20200504 12:41:06.841"></status>
+<msg timestamp="20200504 13:28:53.380" level="INFO">${product_json} = {u'name': u'Donkey Kong', u'price': u'49.99', u'cat': u'Super Nintendo', u'producers': [u'Rare', u'Nintendo'], u'image': u'donkey-kong.jpg', u'desc': u'Um jogo muito divertido!'}</msg>
+<status status="PASS" endtime="20200504 13:28:53.380" starttime="20200504 13:28:53.371"></status>
 </kw>
 <kw name="Remove Product By Name" library="db">
 <arguments>
 <arg>${product_json['name']}</arg>
 </arguments>
-<status status="PASS" endtime="20200504 12:41:07.447" starttime="20200504 12:41:06.848"></status>
+<status status="PASS" endtime="20200504 13:28:53.427" starttime="20200504 13:28:53.380"></status>
 </kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${product_json}</arg>
+</arguments>
+<msg timestamp="20200504 13:28:53.428" level="INFO">${product_json} = {u'name': u'Donkey Kong', u'price': u'49.99', u'cat': u'Super Nintendo', u'producers': [u'Rare', u'Nintendo'], u'image': u'donkey-kong.jpg', u'desc': u'Um jogo muito divertido!'}</msg>
+<status status="PASS" endtime="20200504 13:28:53.428" starttime="20200504 13:28:53.427"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:28:53.428" starttime="20200504 13:28:53.362"></status>
+</kw>
+<kw name="Quando eu faço o cadastro desse produto" library="actions">
 <kw name="Create New Product" library="productPage">
 <arguments>
 <arg>${product_json}</arg>
@@ -107,8 +121,8 @@
 <arguments>
 <arg>class:product-add</arg>
 </arguments>
-<msg timestamp="20200504 12:41:07.450" level="INFO">Clicking element 'class:product-add'.</msg>
-<status status="PASS" endtime="20200504 12:41:07.554" starttime="20200504 12:41:07.449"></status>
+<msg timestamp="20200504 13:28:53.431" level="INFO">Clicking element 'class:product-add'.</msg>
+<status status="PASS" endtime="20200504 13:28:53.962" starttime="20200504 13:28:53.431"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -116,8 +130,8 @@
 <arg>css:input[name=title]</arg>
 <arg>${product_json['name']}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:07.555" level="INFO">Typing text 'Donkey Kong' into text field 'css:input[name=title]'.</msg>
-<status status="PASS" endtime="20200504 12:41:08.221" starttime="20200504 12:41:07.554"></status>
+<msg timestamp="20200504 13:28:53.964" level="INFO">Typing text 'Donkey Kong' into text field 'css:input[name=title]'.</msg>
+<status status="PASS" endtime="20200504 13:28:54.662" starttime="20200504 13:28:53.963"></status>
 </kw>
 <kw name="Select Category" library="productPage">
 <arguments>
@@ -128,25 +142,25 @@
 <arguments>
 <arg>css:input[placeholder=Gategoria]</arg>
 </arguments>
-<msg timestamp="20200504 12:41:08.225" level="INFO">Clicking element 'css:input[placeholder=Gategoria]'.</msg>
-<status status="PASS" endtime="20200504 12:41:08.367" starttime="20200504 12:41:08.224"></status>
+<msg timestamp="20200504 13:28:54.663" level="INFO">Clicking element 'css:input[placeholder=Gategoria]'.</msg>
+<status status="PASS" endtime="20200504 13:28:54.807" starttime="20200504 13:28:54.663"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>class:el-select-dropdown__list</arg>
 </arguments>
-<status status="PASS" endtime="20200504 12:41:08.427" starttime="20200504 12:41:08.367"></status>
+<status status="PASS" endtime="20200504 13:28:54.858" starttime="20200504 13:28:54.807"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>xpath://li//span[text()='${cat}']</arg>
 </arguments>
-<msg timestamp="20200504 12:41:08.429" level="INFO">Clicking element 'xpath://li//span[text()='Super Nintendo']'.</msg>
-<status status="PASS" endtime="20200504 12:41:08.556" starttime="20200504 12:41:08.428"></status>
+<msg timestamp="20200504 13:28:54.858" level="INFO">Clicking element 'xpath://li//span[text()='Super Nintendo']'.</msg>
+<status status="PASS" endtime="20200504 13:28:55.006" starttime="20200504 13:28:54.858"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:08.556" starttime="20200504 12:41:08.222"></status>
+<status status="PASS" endtime="20200504 13:28:55.006" starttime="20200504 13:28:54.662"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -154,8 +168,8 @@
 <arg>css:input[name=price]</arg>
 <arg>${product_json['price']}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:08.558" level="INFO">Typing text '49.99' into text field 'css:input[name=price]'.</msg>
-<status status="PASS" endtime="20200504 12:41:08.800" starttime="20200504 12:41:08.557"></status>
+<msg timestamp="20200504 13:28:55.010" level="INFO">Typing text '49.99' into text field 'css:input[name=price]'.</msg>
+<status status="PASS" endtime="20200504 13:28:55.255" starttime="20200504 13:28:55.006"></status>
 </kw>
 <kw name="Input Producers" library="productPage">
 <arguments>
@@ -168,8 +182,8 @@
 <arguments>
 <arg>${item}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:08.804" level="INFO">Rare</msg>
-<status status="PASS" endtime="20200504 12:41:08.805" starttime="20200504 12:41:08.803"></status>
+<msg timestamp="20200504 13:28:55.256" level="INFO">Rare</msg>
+<status status="PASS" endtime="20200504 13:28:55.257" starttime="20200504 13:28:55.256"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -177,8 +191,8 @@
 <arg>class:producers</arg>
 <arg>${item}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:08.806" level="INFO">Typing text 'Rare' into text field 'class:producers'.</msg>
-<status status="PASS" endtime="20200504 12:41:09.008" starttime="20200504 12:41:08.805"></status>
+<msg timestamp="20200504 13:28:55.257" level="INFO">Typing text 'Rare' into text field 'class:producers'.</msg>
+<status status="PASS" endtime="20200504 13:28:55.440" starttime="20200504 13:28:55.257"></status>
 </kw>
 <kw name="Press Keys" library="SeleniumLibrary">
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
@@ -186,12 +200,12 @@
 <arg>class:producers</arg>
 <arg>TAB</arg>
 </arguments>
-<msg timestamp="20200504 12:41:09.009" level="INFO">Sending key(s) (u'TAB',) to class:producers element.</msg>
-<msg timestamp="20200504 12:41:09.311" level="INFO">Pressing special key TAB to element.</msg>
-<msg timestamp="20200504 12:41:09.311" level="INFO">Releasing special key TAB.</msg>
-<status status="PASS" endtime="20200504 12:41:09.342" starttime="20200504 12:41:09.008"></status>
+<msg timestamp="20200504 13:28:55.441" level="INFO">Sending key(s) (u'TAB',) to class:producers element.</msg>
+<msg timestamp="20200504 13:28:55.723" level="INFO">Pressing special key TAB to element.</msg>
+<msg timestamp="20200504 13:28:55.724" level="INFO">Releasing special key TAB.</msg>
+<status status="PASS" endtime="20200504 13:28:55.753" starttime="20200504 13:28:55.440"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:09.342" starttime="20200504 12:41:08.803"></status>
+<status status="PASS" endtime="20200504 13:28:55.754" starttime="20200504 13:28:55.256"></status>
 </kw>
 <kw type="foritem" name="${item} = Nintendo">
 <kw name="Log" library="BuiltIn">
@@ -199,8 +213,8 @@
 <arguments>
 <arg>${item}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:09.343" level="INFO">Nintendo</msg>
-<status status="PASS" endtime="20200504 12:41:09.344" starttime="20200504 12:41:09.342"></status>
+<msg timestamp="20200504 13:28:55.755" level="INFO">Nintendo</msg>
+<status status="PASS" endtime="20200504 13:28:55.755" starttime="20200504 13:28:55.754"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -208,8 +222,8 @@
 <arg>class:producers</arg>
 <arg>${item}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:09.345" level="INFO">Typing text 'Nintendo' into text field 'class:producers'.</msg>
-<status status="PASS" endtime="20200504 12:41:09.545" starttime="20200504 12:41:09.344"></status>
+<msg timestamp="20200504 13:28:55.756" level="INFO">Typing text 'Nintendo' into text field 'class:producers'.</msg>
+<status status="PASS" endtime="20200504 13:28:55.957" starttime="20200504 13:28:55.755"></status>
 </kw>
 <kw name="Press Keys" library="SeleniumLibrary">
 <doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
@@ -217,16 +231,16 @@
 <arg>class:producers</arg>
 <arg>TAB</arg>
 </arguments>
-<msg timestamp="20200504 12:41:09.547" level="INFO">Sending key(s) (u'TAB',) to class:producers element.</msg>
-<msg timestamp="20200504 12:41:09.826" level="INFO">Pressing special key TAB to element.</msg>
-<msg timestamp="20200504 12:41:09.826" level="INFO">Releasing special key TAB.</msg>
-<status status="PASS" endtime="20200504 12:41:09.846" starttime="20200504 12:41:09.546"></status>
+<msg timestamp="20200504 13:28:55.958" level="INFO">Sending key(s) (u'TAB',) to class:producers element.</msg>
+<msg timestamp="20200504 13:28:56.243" level="INFO">Pressing special key TAB to element.</msg>
+<msg timestamp="20200504 13:28:56.243" level="INFO">Releasing special key TAB.</msg>
+<status status="PASS" endtime="20200504 13:28:56.262" starttime="20200504 13:28:55.958"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:09.846" starttime="20200504 12:41:09.342"></status>
+<status status="PASS" endtime="20200504 13:28:56.262" starttime="20200504 13:28:55.754"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:09.846" starttime="20200504 12:41:08.802"></status>
+<status status="PASS" endtime="20200504 13:28:56.262" starttime="20200504 13:28:55.255"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:09.847" starttime="20200504 12:41:08.800"></status>
+<status status="PASS" endtime="20200504 13:28:56.262" starttime="20200504 13:28:55.255"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
@@ -234,8 +248,8 @@
 <arg>css:textarea[name=description]</arg>
 <arg>${product_json['desc']}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:09.848" level="INFO">Typing text 'Um jogo muito divertido!' into text field 'css:textarea[name=description]'.</msg>
-<status status="PASS" endtime="20200504 12:41:10.258" starttime="20200504 12:41:09.847"></status>
+<msg timestamp="20200504 13:28:56.263" level="INFO">Typing text 'Um jogo muito divertido!' into text field 'css:textarea[name=description]'.</msg>
+<status status="PASS" endtime="20200504 13:28:56.676" starttime="20200504 13:28:56.262"></status>
 </kw>
 <kw name="Upload Photo" library="productPage">
 <arguments>
@@ -249,8 +263,8 @@
 <assign>
 <var>${file}</var>
 </assign>
-<msg timestamp="20200504 12:41:10.261" level="INFO">${file} = /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/donkey-kong.jpg</msg>
-<status status="PASS" endtime="20200504 12:41:10.261" starttime="20200504 12:41:10.260"></status>
+<msg timestamp="20200504 13:28:56.678" level="INFO">${file} = /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/donkey-kong.jpg</msg>
+<status status="PASS" endtime="20200504 13:28:56.678" starttime="20200504 13:28:56.677"></status>
 </kw>
 <kw name="Choose File" library="SeleniumLibrary">
 <doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
@@ -258,30 +272,22 @@
 <arg>id:upcover</arg>
 <arg>${file}</arg>
 </arguments>
-<msg timestamp="20200504 12:41:10.262" level="INFO">Sending /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/donkey-kong.jpg to browser.</msg>
-<status status="PASS" endtime="20200504 12:41:10.334" starttime="20200504 12:41:10.262"></status>
+<msg timestamp="20200504 13:28:56.678" level="INFO">Sending /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/donkey-kong.jpg to browser.</msg>
+<status status="PASS" endtime="20200504 13:28:56.751" starttime="20200504 13:28:56.678"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:10.334" starttime="20200504 12:41:10.259"></status>
+<status status="PASS" endtime="20200504 13:28:56.751" starttime="20200504 13:28:56.677"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
 <arg>id:create-product</arg>
 </arguments>
-<msg timestamp="20200504 12:41:10.335" level="INFO">Clicking element 'id:create-product'.</msg>
-<status status="PASS" endtime="20200504 12:41:10.452" starttime="20200504 12:41:10.334"></status>
+<msg timestamp="20200504 13:28:56.752" level="INFO">Clicking element 'id:create-product'.</msg>
+<status status="PASS" endtime="20200504 13:28:56.831" starttime="20200504 13:28:56.752"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:10.452" starttime="20200504 12:41:07.448"></status>
+<status status="PASS" endtime="20200504 13:28:56.832" starttime="20200504 13:28:53.429"></status>
 </kw>
-<kw name="Set Test Variable" library="BuiltIn">
-<doc>Makes a variable available everywhere within the scope of the current test.</doc>
-<arguments>
-<arg>${product_json}</arg>
-</arguments>
-<msg timestamp="20200504 12:41:10.453" level="INFO">${product_json} = {u'name': u'Donkey Kong', u'price': u'49.99', u'cat': u'Super Nintendo', u'producers': [u'Rare', u'Nintendo'], u'image': u'donkey-kong.jpg', u'desc': u'Um jogo muito divertido!'}</msg>
-<status status="PASS" endtime="20200504 12:41:10.453" starttime="20200504 12:41:10.452"></status>
-</kw>
-<status status="PASS" endtime="20200504 12:41:10.454" starttime="20200504 12:41:06.837"></status>
+<status status="PASS" endtime="20200504 13:28:56.832" starttime="20200504 13:28:53.429"></status>
 </kw>
 <kw name="Então devo ver este item no catálogo" library="actions">
 <kw name="Table Should Contain" library="SeleniumLibrary">
@@ -290,34 +296,461 @@
 <arg>class:table</arg>
 <arg>${product_json['name']}</arg>
 </arguments>
-<status status="PASS" endtime="20200504 12:41:11.996" starttime="20200504 12:41:10.455"></status>
+<status status="PASS" endtime="20200504 13:28:58.369" starttime="20200504 13:28:56.841"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:11.996" starttime="20200504 12:41:10.454"></status>
+<status status="PASS" endtime="20200504 13:28:58.370" starttime="20200504 13:28:56.834"></status>
 </kw>
 <kw type="teardown" name="Close Session" library="basePage">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20200504 12:41:12.125" starttime="20200504 12:41:11.997"></status>
+<status status="PASS" endtime="20200504 13:28:58.462" starttime="20200504 13:28:58.371"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:12.126" starttime="20200504 12:41:11.996"></status>
+<status status="PASS" endtime="20200504 13:28:58.463" starttime="20200504 13:28:58.370"></status>
 </kw>
-<status status="PASS" endtime="20200504 12:41:12.126" critical="yes" starttime="20200504 12:41:01.204"></status>
+<status status="PASS" endtime="20200504 13:28:58.463" critical="yes" starttime="20200504 13:28:48.078"></status>
+</test>
+<test id="s1-t2" name="Produto duplicado">
+<kw type="setup" name="Login Session" library="basePage">
+<kw name="Open Session" library="basePage">
+<kw name="Open Chrome" library="basePage">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${base_url}/login</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20200504 13:28:58.470" level="INFO">Opening browser 'chrome' to base url 'http://pixel-web:3000/login'.</msg>
+<status status="PASS" endtime="20200504 13:29:03.099" starttime="20200504 13:28:58.469"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:03.100" starttime="20200504 13:28:58.468"></status>
+</kw>
+<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>10</arg>
+</arguments>
+<status status="PASS" endtime="20200504 13:29:03.104" starttime="20200504 13:29:03.101"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:03.104" starttime="20200504 13:28:58.467"></status>
+</kw>
+<kw name="Login With" library="loginPage">
+<arguments>
+<arg>papito@ninjapixel.com</arg>
+<arg>pwd123</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:emailId</arg>
+<arg>${email}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:03.105" level="INFO">Typing text 'papito@ninjapixel.com' into text field 'id:emailId'.</msg>
+<status status="PASS" endtime="20200504 13:29:03.471" starttime="20200504 13:29:03.105"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>id:passId</arg>
+<arg>${pass}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:03.471" level="INFO">Typing text 'pwd123' into text field 'id:passId'.</msg>
+<status status="PASS" endtime="20200504 13:29:03.666" starttime="20200504 13:29:03.471"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>class:btn</arg>
+</arguments>
+<msg timestamp="20200504 13:29:03.667" level="INFO">Clicking element 'class:btn'.</msg>
+<status status="PASS" endtime="20200504 13:29:03.770" starttime="20200504 13:29:03.667"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:03.771" starttime="20200504 13:29:03.104"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:03.771" starttime="20200504 13:28:58.466"></status>
+</kw>
+<kw name="Dado que eu tenho um novo produto" library="actions">
+<arguments>
+<arg>master.json</arg>
+</arguments>
+<kw name="Get File" library="OperatingSystem">
+<doc>Returns the contents of a specified file.</doc>
+<arguments>
+<arg>resources/fixtures/${file_name}</arg>
+</arguments>
+<assign>
+<var>${file}</var>
+</assign>
+<msg timestamp="20200504 13:29:03.774" html="yes" level="INFO">Getting file '&lt;a href="file:///home/rhom09/robocamp/ninjapixel/resources/fixtures/master.json"&gt;/home/rhom09/robocamp/ninjapixel/resources/fixtures/master.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200504 13:29:03.778" level="INFO">${file} = {
+    "name": "Master System II",
+    "cat": "Consoles",
+    "price": "99.99",
+    "desc": "8 Bits com Alex Kid na memória! ",
+    "producers": ["Sega"],
+    "image": "master2.jpg"
+}</msg>
+<status status="PASS" endtime="20200504 13:29:03.778" starttime="20200504 13:29:03.772"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads($file)</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${product_json}</var>
+</assign>
+<msg timestamp="20200504 13:29:03.782" level="INFO">${product_json} = {u'name': u'Master System II', u'price': u'99.99', u'cat': u'Consoles', u'producers': [u'Sega'], u'image': u'master2.jpg', u'desc': u'8 Bits com Alex Kid na mem\xf3ria! '}</msg>
+<status status="PASS" endtime="20200504 13:29:03.782" starttime="20200504 13:29:03.779"></status>
+</kw>
+<kw name="Remove Product By Name" library="db">
+<arguments>
+<arg>${product_json['name']}</arg>
+</arguments>
+<status status="PASS" endtime="20200504 13:29:03.795" starttime="20200504 13:29:03.783"></status>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<arguments>
+<arg>${product_json}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:03.797" level="INFO">${product_json} = {u'name': u'Master System II', u'price': u'99.99', u'cat': u'Consoles', u'producers': [u'Sega'], u'image': u'master2.jpg', u'desc': u'8 Bits com Alex Kid na mem\xf3ria! '}</msg>
+<status status="PASS" endtime="20200504 13:29:03.797" starttime="20200504 13:29:03.796"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:03.797" starttime="20200504 13:29:03.771"></status>
+</kw>
+<kw name="Mas este produto já foi cadastrado" library="actions">
+<kw name="Create New Product" library="productPage">
+<arguments>
+<arg>${product_json}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>class:product-add</arg>
+</arguments>
+<msg timestamp="20200504 13:29:03.801" level="INFO">Clicking element 'class:product-add'.</msg>
+<status status="PASS" endtime="20200504 13:29:04.357" starttime="20200504 13:29:03.800"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css:input[name=title]</arg>
+<arg>${product_json['name']}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:04.359" level="INFO">Typing text 'Master System II' into text field 'css:input[name=title]'.</msg>
+<status status="PASS" endtime="20200504 13:29:05.158" starttime="20200504 13:29:04.358"></status>
+</kw>
+<kw name="Select Category" library="productPage">
+<arguments>
+<arg>${product_json['cat']}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css:input[placeholder=Gategoria]</arg>
+</arguments>
+<msg timestamp="20200504 13:29:05.160" level="INFO">Clicking element 'css:input[placeholder=Gategoria]'.</msg>
+<status status="PASS" endtime="20200504 13:29:05.271" starttime="20200504 13:29:05.160"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>class:el-select-dropdown__list</arg>
+</arguments>
+<status status="PASS" endtime="20200504 13:29:05.554" starttime="20200504 13:29:05.271"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://li//span[text()='${cat}']</arg>
+</arguments>
+<msg timestamp="20200504 13:29:05.557" level="INFO">Clicking element 'xpath://li//span[text()='Consoles']'.</msg>
+<status status="PASS" endtime="20200504 13:29:05.683" starttime="20200504 13:29:05.556"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:05.683" starttime="20200504 13:29:05.159"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css:input[name=price]</arg>
+<arg>${product_json['price']}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:05.685" level="INFO">Typing text '99.99' into text field 'css:input[name=price]'.</msg>
+<status status="PASS" endtime="20200504 13:29:05.915" starttime="20200504 13:29:05.684"></status>
+</kw>
+<kw name="Input Producers" library="productPage">
+<arguments>
+<arg>${product_json['producers']}</arg>
+</arguments>
+<kw type="for" name="${item} IN [ @{producers} ]">
+<kw type="foritem" name="${item} = Sega">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${item}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:05.916" level="INFO">Sega</msg>
+<status status="PASS" endtime="20200504 13:29:05.916" starttime="20200504 13:29:05.916"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:producers</arg>
+<arg>${item}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:05.916" level="INFO">Typing text 'Sega' into text field 'class:producers'.</msg>
+<status status="PASS" endtime="20200504 13:29:06.167" starttime="20200504 13:29:05.916"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>class:producers</arg>
+<arg>TAB</arg>
+</arguments>
+<msg timestamp="20200504 13:29:06.168" level="INFO">Sending key(s) (u'TAB',) to class:producers element.</msg>
+<msg timestamp="20200504 13:29:06.465" level="INFO">Pressing special key TAB to element.</msg>
+<msg timestamp="20200504 13:29:06.465" level="INFO">Releasing special key TAB.</msg>
+<status status="PASS" endtime="20200504 13:29:06.483" starttime="20200504 13:29:06.167"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:06.483" starttime="20200504 13:29:05.916"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:06.483" starttime="20200504 13:29:05.915"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:06.483" starttime="20200504 13:29:05.915"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css:textarea[name=description]</arg>
+<arg>${product_json['desc']}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:06.484" level="INFO">Typing text '8 Bits com Alex Kid na memória! ' into text field 'css:textarea[name=description]'.</msg>
+<status status="PASS" endtime="20200504 13:29:07.037" starttime="20200504 13:29:06.483"></status>
+</kw>
+<kw name="Upload Photo" library="productPage">
+<arguments>
+<arg>${product_json['image']}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${EXECDIR}/resources/fixtures/images/${image}</arg>
+</arguments>
+<assign>
+<var>${file}</var>
+</assign>
+<msg timestamp="20200504 13:29:07.040" level="INFO">${file} = /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/master2.jpg</msg>
+<status status="PASS" endtime="20200504 13:29:07.041" starttime="20200504 13:29:07.039"></status>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<arguments>
+<arg>id:upcover</arg>
+<arg>${file}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:07.041" level="INFO">Sending /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/master2.jpg to browser.</msg>
+<status status="PASS" endtime="20200504 13:29:07.123" starttime="20200504 13:29:07.041"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:07.123" starttime="20200504 13:29:07.037"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>id:create-product</arg>
+</arguments>
+<msg timestamp="20200504 13:29:07.124" level="INFO">Clicking element 'id:create-product'.</msg>
+<status status="PASS" endtime="20200504 13:29:07.251" starttime="20200504 13:29:07.124"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:07.251" starttime="20200504 13:29:03.799"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:07.251" starttime="20200504 13:29:03.798"></status>
+</kw>
+<kw name="Quando eu faço o cadastro desse produto" library="actions">
+<kw name="Create New Product" library="productPage">
+<arguments>
+<arg>${product_json}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>class:product-add</arg>
+</arguments>
+<msg timestamp="20200504 13:29:07.254" level="INFO">Clicking element 'class:product-add'.</msg>
+<status status="PASS" endtime="20200504 13:29:07.659" starttime="20200504 13:29:07.253"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css:input[name=title]</arg>
+<arg>${product_json['name']}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:07.660" level="INFO">Typing text 'Master System II' into text field 'css:input[name=title]'.</msg>
+<status status="PASS" endtime="20200504 13:29:08.515" starttime="20200504 13:29:07.660"></status>
+</kw>
+<kw name="Select Category" library="productPage">
+<arguments>
+<arg>${product_json['cat']}</arg>
+</arguments>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>css:input[placeholder=Gategoria]</arg>
+</arguments>
+<msg timestamp="20200504 13:29:08.517" level="INFO">Clicking element 'css:input[placeholder=Gategoria]'.</msg>
+<status status="PASS" endtime="20200504 13:29:08.631" starttime="20200504 13:29:08.517"></status>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>class:el-select-dropdown__list</arg>
+</arguments>
+<status status="PASS" endtime="20200504 13:29:08.894" starttime="20200504 13:29:08.631"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://li//span[text()='${cat}']</arg>
+</arguments>
+<msg timestamp="20200504 13:29:08.895" level="INFO">Clicking element 'xpath://li//span[text()='Consoles']'.</msg>
+<status status="PASS" endtime="20200504 13:29:09.013" starttime="20200504 13:29:08.894"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:09.013" starttime="20200504 13:29:08.516"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css:input[name=price]</arg>
+<arg>${product_json['price']}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:09.014" level="INFO">Typing text '99.99' into text field 'css:input[name=price]'.</msg>
+<status status="PASS" endtime="20200504 13:29:09.224" starttime="20200504 13:29:09.013"></status>
+</kw>
+<kw name="Input Producers" library="productPage">
+<arguments>
+<arg>${product_json['producers']}</arg>
+</arguments>
+<kw type="for" name="${item} IN [ @{producers} ]">
+<kw type="foritem" name="${item} = Sega">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${item}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:09.228" level="INFO">Sega</msg>
+<status status="PASS" endtime="20200504 13:29:09.228" starttime="20200504 13:29:09.227"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>class:producers</arg>
+<arg>${item}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:09.229" level="INFO">Typing text 'Sega' into text field 'class:producers'.</msg>
+<status status="PASS" endtime="20200504 13:29:09.387" starttime="20200504 13:29:09.229"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>class:producers</arg>
+<arg>TAB</arg>
+</arguments>
+<msg timestamp="20200504 13:29:09.388" level="INFO">Sending key(s) (u'TAB',) to class:producers element.</msg>
+<msg timestamp="20200504 13:29:09.693" level="INFO">Pressing special key TAB to element.</msg>
+<msg timestamp="20200504 13:29:09.693" level="INFO">Releasing special key TAB.</msg>
+<status status="PASS" endtime="20200504 13:29:09.714" starttime="20200504 13:29:09.388"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:09.714" starttime="20200504 13:29:09.227"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:09.714" starttime="20200504 13:29:09.227"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:09.714" starttime="20200504 13:29:09.225"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>css:textarea[name=description]</arg>
+<arg>${product_json['desc']}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:09.715" level="INFO">Typing text '8 Bits com Alex Kid na memória! ' into text field 'css:textarea[name=description]'.</msg>
+<status status="PASS" endtime="20200504 13:29:10.147" starttime="20200504 13:29:09.714"></status>
+</kw>
+<kw name="Upload Photo" library="productPage">
+<arguments>
+<arg>${product_json['image']}</arg>
+</arguments>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${EXECDIR}/resources/fixtures/images/${image}</arg>
+</arguments>
+<assign>
+<var>${file}</var>
+</assign>
+<msg timestamp="20200504 13:29:10.149" level="INFO">${file} = /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/master2.jpg</msg>
+<status status="PASS" endtime="20200504 13:29:10.149" starttime="20200504 13:29:10.148"></status>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into the file input field ``locator``.</doc>
+<arguments>
+<arg>id:upcover</arg>
+<arg>${file}</arg>
+</arguments>
+<msg timestamp="20200504 13:29:10.149" level="INFO">Sending /home/rhom09/robocamp/ninjapixel/resources/fixtures/images/master2.jpg to browser.</msg>
+<status status="PASS" endtime="20200504 13:29:10.205" starttime="20200504 13:29:10.149"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:10.205" starttime="20200504 13:29:10.148"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>id:create-product</arg>
+</arguments>
+<msg timestamp="20200504 13:29:10.206" level="INFO">Clicking element 'id:create-product'.</msg>
+<status status="PASS" endtime="20200504 13:29:10.297" starttime="20200504 13:29:10.205"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:10.298" starttime="20200504 13:29:07.252"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:10.298" starttime="20200504 13:29:07.252"></status>
+</kw>
+<kw name="Então devo ver a mensagem de alerta" library="actions">
+<arguments>
+<arg>Oops - Este produto já foi cadastrado!</arg>
+</arguments>
+<kw name="Wait Until Element Contains" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<arguments>
+<arg>class:alert-danger</arg>
+<arg>${expect_message}</arg>
+</arguments>
+<status status="PASS" endtime="20200504 13:29:10.601" starttime="20200504 13:29:10.300"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:10.602" starttime="20200504 13:29:10.299"></status>
+</kw>
+<kw type="teardown" name="Close Session" library="basePage">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20200504 13:29:10.691" starttime="20200504 13:29:10.604"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:10.692" starttime="20200504 13:29:10.603"></status>
+</kw>
+<status status="PASS" endtime="20200504 13:29:10.692" critical="yes" starttime="20200504 13:28:58.465"></status>
 </test>
 <doc>Cadastro de produtos
 Sendo um administrador de catálogo
 Quero cadastrar produtos
 Para que eu possa disponibiliza-los na loja virtual</doc>
-<status status="PASS" endtime="20200504 12:41:12.128" starttime="20200504 12:41:01.041"></status>
+<status status="PASS" endtime="20200504 13:29:10.693" starttime="20200504 13:28:47.886"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="0" pass="1">Critical Tests</stat>
-<stat fail="0" pass="1">All Tests</stat>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Cadastro" pass="1">Cadastro</stat>
+<stat fail="0" id="s1" name="Cadastro" pass="2">Cadastro</stat>
 </suite>
 </statistics>
 <errors>

@@ -4,17 +4,21 @@ Documentation       Cadastro de produtos
 ...         Quero cadastrar produtos
 ...         Para que eu possa disponibiliza-los na loja virtual
 
-Library     SeleniumLibrary
-
 Resource    ../resources/actions.robot
 
-# Abre e fecha o navegador importando de actions.robot
-Test Setup      Open Session
+# Abre(e faz login) e fecha o navegador importando de actions.robot
+Test Setup      Login Session
 Test Teardown   Close Session
 
 *** Test Cases ***
 Disponibilizar produto
-    Dado que eu estou logado
     # Massa de teste vinda da coleção feita com json 
-    Quando eu faço o cadastro desse produto     dk.json
+    Dado que eu tenho um novo produto   dk.json
+    Quando eu faço o cadastro desse produto
     Então devo ver este item no catálogo
+
+Produto duplicado
+    Dado que eu tenho um novo produto   master.json
+    Mas este produto já foi cadastrado
+    Quando eu faço o cadastro desse produto
+    Então devo ver a mensagem de alerta     Oops - Este produto já foi cadastrado!    
