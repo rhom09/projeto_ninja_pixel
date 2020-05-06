@@ -2,11 +2,15 @@
 Documentation       Este arquivo implementa funções e elementos da página Produtos
 
 *** Keywords ***
+Go To Product Form
+    # Clica no botão add produto
+    Set Selenium Speed   1
+    Click Element       class:product-add
+    Set Selenium Speed   0
+
 Create New Product
     [Arguments]     ${product_json}
 
-     # Clica no botão add produto
-    Click Element                       class:product-add
     # Aqui eu passo o nome da variavel mais o valor dela no caso name
     Input Text                          css:input[name=title]           ${product_json['name']}
     # Colocamos um if aqui pois se não for selecionado a categoria o teste passa direto

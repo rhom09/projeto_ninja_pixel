@@ -27,7 +27,11 @@ After Test WCLS
 # Ele abre e faz login na app
 Login Session
     Open Session
-    Login With      papito@ninjapixel.com       pwd123    
+    Login With      papito@ninjapixel.com       pwd123
+
+Product Form Session
+    Login Session
+    Go To Product Form     
 
 Open Chrome
     Open Browser   ${base_url}/login    chrome

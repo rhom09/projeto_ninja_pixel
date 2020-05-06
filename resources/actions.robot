@@ -65,12 +65,17 @@ Dado que eu tenho um novo produto
     Set Test Variable           ${product_json} 
 
 Mas este produto já foi cadastrado
+    Go To Product Form
     Create New Product      ${product_json}
 
 Quando eu faço o cadastro desse produto
+    Go To Product Form
     # Importa a keyword de productPage
     Create New Product      ${product_json}
-    
+
+Quando eu tento cadastrar o produto    
+    Create New Product      ${product_json}
+
 Então devo ver este item no catálogo
     # Usa essa keyword pois o catalogo é uma table, e procuro dentro da class que contem td table
     Table Should Contain       class:table      ${product_json['name']} 
@@ -82,6 +87,7 @@ Dado que eu tenho o produto "${file_name}" no catálogo
     ${product_json}=    Get Product Json        ${file_name}
     # Deleta no banco e Cria um novo produto
     Remove Product By Name      ${product_json['name']}
+    Go To Product Form
     Create New Product          ${product_json}
     # E deixa ele disponivel
     Set Test Variable           ${product_json} 

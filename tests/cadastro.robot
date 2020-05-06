@@ -25,27 +25,3 @@ Produto duplicado
     Mas este produto já foi cadastrado
     Quando eu faço o cadastro desse produto
     Então devo ver uma mensagem de erro     Oops - Este produto já foi cadastrado!
-
-Nome não informado
-    [Tags]      name
-    [Template]          Tentativa de cadastro
-    contra.json         Oops - Informe o nome do produto! 
-
-Categoria não selecionada
-    [Tags]      cat
-    [Template]          Tentativa de cadastro
-    goldenAxe.json      Oops - Selecione uma categoria! 
-
-preço não informado
-    [Tags]      price
-    [Template]          Tentativa de cadastro
-    streetFII.json      Oops - Informe o preço também!
-
-*** Keywords ***
-# Crio uma keyword que servirá de template para todos e chamo em cada um deles
-Tentativa de cadastro
-    [Arguments]     ${file_name}        ${expect_message}
-
-    Dado que eu tenho um novo produto           ${file_name}
-    Quando eu faço o cadastro desse produto
-    Então devo ver uma mensagem informativa     ${expect_message} 
