@@ -24,7 +24,7 @@ Get Product Json
 
     # Crio uma variavel e nela chamo o GET FILE(Biblioteca OperatingSystem)
     # E passo o caminho da arquivo json, que já está setado na variavel ${file}
-    ${file}=    Get File    resources/fixtures/${file_name}
+    ${file}=    Get File    frontend/resources/fixtures/${file_name}
     # E converto ele em json para pode carregar o valor do arquivo
     ${json}=     Evaluate    json.loads($file)   json
 

@@ -31,7 +31,7 @@ Create New Product
 Upload Photo
     [Arguments]     ${image}    
     
-    ${file}         Set Variable    ${EXECDIR}/resources/fixtures/images/${image}
+    ${file}         Set Variable    ${EXECDIR}/frontend/resources/fixtures/images/${image}
 
     Choose File     id:upcover      ${file}
     
@@ -50,7 +50,8 @@ Input Producers
     [Arguments]     ${producers}
 
     # Para os produtores como é um array devemos fazer um FOR(robot) para capturar os dados
-    : FOR   ${item}     IN      @{producers}
-    \   Log     ${item}
-    \   Input Text      class:producers     ${item}
-    \   Press Keys      class:producers     TAB    
+    FOR   ${item}     IN      @{producers}
+        Log     ${item}
+        Input Text      class:producers     ${item}
+        Press Keys      class:producers     TAB    
+    END   
