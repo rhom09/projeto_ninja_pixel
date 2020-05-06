@@ -10,8 +10,8 @@ Create New Product
     # Aqui eu passo o nome da variavel mais o valor dela no caso name
     Input Text                          css:input[name=title]           ${product_json['name']}
     # Colocamos um if aqui pois se não for selecionado a categoria o teste passa direto
-    Run Keyword if      ${product_json['cat']}
-    Select Category     ${product_json['cat']}
+    Run Keyword if              "${product_json['cat']}"
+    ...     Select Category      ${product_json['cat']}
     # Preenche o preço do produto
     Input Text                          css:input[name=price]           ${product_json['price']}
 
