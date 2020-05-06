@@ -24,22 +24,28 @@ Produto duplicado
     Dado que eu tenho um novo produto   master.json
     Mas este produto já foi cadastrado
     Quando eu faço o cadastro desse produto
-    Então devo ver a mensagem de alerta     Oops - Este produto já foi cadastrado!
+    Então devo ver uma mensagem de erro     Oops - Este produto já foi cadastrado!
 
 Nome não informado
-    [Tags]      nome
-    Dado que eu tenho um novo produto   contra.json
-    Quando eu faço o cadastro desse produto
-    Então devo ver uma mensagem informativa     Oops - Informe o nome do produto! 
+    [Tags]      name
+    [Template]          Tentativa de cadastro
+    contra.json         Oops - Informe o nome do produto! 
 
 Categoria não selecionada
     [Tags]      cat
-    Dado que eu tenho um novo produto   goldenAxe.json
-    Quando eu cadastro sem categoria
-    Então devo ver uma mensagem informativa     Oops - Selecione uma categoria! 
+    [Template]          Tentativa de cadastro
+    goldenAxe.json      Oops - Selecione uma categoria! 
 
 preço não informado
-    [Tags]      preco
-    Dado que eu tenho um novo produto   streetFII.json
+    [Tags]      price
+    [Template]          Tentativa de cadastro
+    streetFII.json      Oops - Informe o preço também!
+
+*** Keywords ***
+# Crio uma keyword que servirá de template para todos e chamo em cada um deles
+Tentativa de cadastro
+    [Arguments]     ${file_name}        ${expect_message}
+
+    Dado que eu tenho um novo produto           ${file_name}
     Quando eu faço o cadastro desse produto
-    Então devo ver uma mensagem informativa     Oops - Informe o preço também!               
+    Então devo ver uma mensagem informativa     ${expect_message} 

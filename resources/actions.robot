@@ -41,9 +41,15 @@ Então devo ser autenticado
     Wait Until Element Is Visible       ${LOGGED_USER}
     Element Text Should Be              ${LOGGED_USER}    Papito 
 
-# Passamos um argumento(massa de teste), como parametro na keyword
-Então devo ver uma mensagem de alerta "${expect_message}"
-    Wait Until Element Contains    class:alert     ${expect_message} 
+Então devo ver uma mensagem de erro
+    [Arguments]     ${expect_message}
+
+    Wait Until Element Contains     ${ALERT_DANGER}      ${expect_message}
+
+Então devo ver uma mensagem informativa 
+    [Arguments]     ${expect_message}
+
+    Wait Until Element Contains     ${ALERT_INFO}      ${expect_message}  
 
 ### Products    
 
@@ -64,24 +70,10 @@ Mas este produto já foi cadastrado
 Quando eu faço o cadastro desse produto
     # Importa a keyword de productPage
     Create New Product      ${product_json}
-
-Quando eu cadastro sem categoria
-    Create New Product Without Category  ${product_json}
-
     
 Então devo ver este item no catálogo
     # Usa essa keyword pois o catalogo é uma table, e procuro dentro da class que contem td table
-    Table Should Contain       class:table      ${product_json['name']}
-
-Então devo ver a mensagem de alerta
-    [Arguments]     ${expect_message}
-
-    Wait Until Element Contains     class:alert-danger      ${expect_message}
-
-Então devo ver uma mensagem informativa 
-    [Arguments]     ${expect_message}
-
-    Wait Until Element Contains     class:alert-info      ${expect_message}   
+    Table Should Contain       class:table      ${product_json['name']} 
 
 ### Remove
 

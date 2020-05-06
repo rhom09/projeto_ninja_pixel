@@ -4,6 +4,9 @@ Documentation       Este arquivo implementa abertura e fechamento do navegador
 *** Variables ***
 ${base_url}      http://pixel-web:3000
 
+${ALERT_DANGER}     class:alert-danger
+${ALERT_INFO}       class:alert-info
+
 
 *** Keywords ***
 Open Session
