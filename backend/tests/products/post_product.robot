@@ -1,33 +1,44 @@
 *** Settings ***
 Documentation       Testes da Rota /products da Pixel API
 
-Library     RequestsLibrary
-Library     Collections
-Library     OperatingSystem
+Resource    ../../resources/services.robot
 
 *** Test Cases ***
 Create new product
-    Create Session      pixel       Http://pixel-api:3333
-
-    ### PEGANDO O TOKEN DE AUTH ###
-    &{payload}=         Create Dictionary       email=papito@ninjapixel.com     password=pwd123
-    &{headers}=         Create Dictionary       Content-Type=application/json
-
-    ${resp}             Post Request    pixel   /auth   data=${payload}     headers=${headers}
-    # Cria uma variavel para armazenar o token e pode usar para autorizar o post product
-    ${token}            Convert To String       ${resp.json()['token']}
-
-    ### PAYLOAD VINDO DO ARQUIVO JSON ###
-    # get file(keyword) para carregar arquivos em memorias, e como é GET sempre vai retornar algo
-    # Por isso guardamos em uma variavel(${file})
-    ${file}=            Get File        ${EXECDIR}/resources/fixtures/dk.json
-    # Como API aceita o formato json nós convertemos o $file em json para mandar para a API
-    ${payload}=         evaluate        json.loads($file)   json
-
-    # Headers com content-type e authorization
-    &{headers}=         Create Dictionary       Content-Type=application/json   Authorization=JWT ${token}
-
-    # POST REQUEST NA API
-    ${resp}             Post Request    pixel   /products   data=${payload}     headers=${headers}
+    [Tags]          success
+    # Token que está encapsulado em services.robot na keyword(Get Token)
+    ${token}=       Get Token       papito@ninjapixel.com       pwd123
+    # POST REQUEST NA API atraves da keyword(POST PRODUCT) encapsulada em services.robot
+    ${resp}=        Post Product    dk.json                     ${token}
     # Validação
     Status Should Be    200     ${resp}
+
+Required title
+    [Tags]          bad_request
+    ${token}=       Get Token       papito@ninjapixel.com       pwd123
+
+    ${resp}=        Post Product    no_title.json               ${token}
+    
+    Status Should Be    400     ${resp}
+    # Validação exata no campo certo
+    Should Be Equal     ${resp.json()['msg']}       Oops! title cannot be empty
+
+Required category
+    [Tags]          bad_request
+    ${token}=       Get Token       papito@ninjapixel.com       pwd123
+
+    ${resp}=        Post Product    no_cat.json               ${token}
+    
+    Status Should Be    400     ${resp}    
+
+    Should Be Equal     ${resp.json()['msg']}       Oops! category cannot be empty
+
+Required price
+    [Tags]          bad_request
+    ${token}=       Get Token       papito@ninjapixel.com       pwd123
+
+    ${resp}=        Post Product    no_price.json               ${token}
+    
+    Status Should Be    400     ${resp}    
+
+    Should Be Equal     ${resp.json()['msg']}       Oops! price cannot be empty
