@@ -21,7 +21,8 @@ Duplicated Product
 
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
     ${payload}=     Get Json        dk.json
-    ${resp}=        Post Product    ${payload}                  ${token}
+    # Aqui eu chamo a nova keyword(Product Existing), criada na camada services.robot
+    ${resp}=        Product Existing    ${payload}                  ${token}
 
     Status Should Be    409     ${resp}
 

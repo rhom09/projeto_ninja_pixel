@@ -60,6 +60,19 @@ Post Product
     ${resp}             Post Request    pixel   /products   data=${payload}     headers=${headers}
     [Return]            ${resp}
 
+# Nova Keyword criada para atender ao DESAFIO!!!
+# Implementei uma keyword dentro da outra, assim essa keyword não ficará dependente de outra
+Product Existing   
+
+    [Arguments]     ${payload}    ${token}
+
+    Post Product    ${payload}   ${token}
+
+    &{headers}=         Create Dictionary       Content-Type=application/json   Authorization=JWT ${token}
+
+    ${resp}             Post Request    pixel   /products   data=${payload}     headers=${headers}
+    [Return]            ${resp}
+
 ### GET ###
 Get Product
     [Arguments]     ${id}       ${token}

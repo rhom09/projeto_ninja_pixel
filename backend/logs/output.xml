@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot rpa="false" generated="20200508 00:29:08.592" generator="Robot 3.2.1 (Python 2.7.17 on linux2)">
-<suite source="/home/rhom09/robocamp/ninjapixel/backend/tests/products/delete_product.robot" id="s1" name="Delete Product">
-<test id="s1-t1" name="Delete Unique Product">
+<robot rpa="false" generated="20200508 01:10:40.921" generator="Robot 3.2.1 (Python 2.7.17 on linux2)">
+<suite source="/home/rhom09/robocamp/ninjapixel/backend/tests/products/post_product.robot" id="s1" name="Post Product">
+<test id="s1-t1" name="Duplicated Product">
 <kw name="Get Token" library="services">
 <arguments>
 <arg>papito@ninjapixel.com</arg>
@@ -24,8 +24,8 @@
 <arg>pixel</arg>
 <arg>Http://pixel-api:3333</arg>
 </arguments>
-<msg timestamp="20200508 00:29:08.703" level="INFO">Creating Session using : alias=pixel, url=Http://pixel-api:3333, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200508 00:29:08.703" starttime="20200508 00:29:08.702"></status>
+<msg timestamp="20200508 01:10:41.037" level="INFO">Creating Session using : alias=pixel, url=Http://pixel-api:3333, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" endtime="20200508 01:10:41.037" starttime="20200508 01:10:41.036"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -36,8 +36,8 @@
 <assign>
 <var>&amp;{payload}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.704" level="INFO">&amp;{payload} = { email=papito@ninjapixel.com | password=pwd123 }</msg>
-<status status="PASS" endtime="20200508 00:29:08.705" starttime="20200508 00:29:08.703"></status>
+<msg timestamp="20200508 01:10:41.039" level="INFO">&amp;{payload} = { email=papito@ninjapixel.com | password=pwd123 }</msg>
+<status status="PASS" endtime="20200508 01:10:41.040" starttime="20200508 01:10:41.038"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -47,8 +47,8 @@
 <assign>
 <var>&amp;{headers}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.705" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
-<status status="PASS" endtime="20200508 00:29:08.705" starttime="20200508 00:29:08.705"></status>
+<msg timestamp="20200508 01:10:41.041" level="INFO">&amp;{headers} = { Content-Type=application/json }</msg>
+<status status="PASS" endtime="20200508 01:10:41.041" starttime="20200508 01:10:41.040"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -62,24 +62,24 @@ given `alias`</doc>
 <assign>
 <var>${resp}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.805" level="INFO">POST Request : url=http://pixel-api:3333/auth 
+<msg timestamp="20200508 01:10:41.142" level="INFO">POST Request : url=http://pixel-api:3333/auth 
  path_url=/auth 
  headers={'Content-Length': '56', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json'} 
  body={"email": "papito@ninjapixel.com", "password": "pwd123"} 
  </msg>
-<msg timestamp="20200508 00:29:08.805" level="INFO">POST Response : url=http://pixel-api:3333/auth 
+<msg timestamp="20200508 01:10:41.142" level="INFO">POST Response : url=http://pixel-api:3333/auth 
  status=200, reason=OK 
  body={
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI",
-    "expire": "2020-05-08T03:34:08.802+00:00",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0",
+    "expire": "2020-05-08T04:15:41.139+00:00",
     "userId": 1
 } 
  </msg>
-<msg timestamp="20200508 00:29:08.806" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200508 00:29:08.806" starttime="20200508 00:29:08.706"></status>
+<msg timestamp="20200508 01:10:41.143" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200508 01:10:41.143" starttime="20200508 01:10:41.041"></status>
 </kw>
-<msg timestamp="20200508 00:29:08.806" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200508 00:29:08.806" starttime="20200508 00:29:08.701"></status>
+<msg timestamp="20200508 01:10:41.143" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200508 01:10:41.143" starttime="20200508 01:10:41.035"></status>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <doc>Converts the given item to a Unicode string.</doc>
@@ -89,15 +89,15 @@ given `alias`</doc>
 <assign>
 <var>${token}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.807" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI</msg>
-<status status="PASS" endtime="20200508 00:29:08.807" starttime="20200508 00:29:08.806"></status>
+<msg timestamp="20200508 01:10:41.144" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0</msg>
+<status status="PASS" endtime="20200508 01:10:41.144" starttime="20200508 01:10:41.143"></status>
 </kw>
-<msg timestamp="20200508 00:29:08.807" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI</msg>
-<status status="PASS" endtime="20200508 00:29:08.807" starttime="20200508 00:29:08.701"></status>
+<msg timestamp="20200508 01:10:41.144" level="INFO">${token} = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0</msg>
+<status status="PASS" endtime="20200508 01:10:41.144" starttime="20200508 01:10:41.034"></status>
 </kw>
 <kw name="Get Json" library="services">
 <arguments>
-<arg>get_unique.json</arg>
+<arg>dk.json</arg>
 </arguments>
 <assign>
 <var>${payload}</var>
@@ -110,16 +110,14 @@ given `alias`</doc>
 <assign>
 <var>${file}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.808" html="yes" level="INFO">Getting file '&lt;a href="file:///home/rhom09/robocamp/ninjapixel/backend/resources/fixtures/get_unique.json"&gt;/home/rhom09/robocamp/ninjapixel/backend/resources/fixtures/get_unique.json&lt;/a&gt;'.</msg>
-<msg timestamp="20200508 00:29:08.809" level="INFO">${file} = {
-    "title": "GameBoy",
-    "category": "Console",
-    "producers": ["Nintendo"],
-    "price": "99.99",
-    "description": "Game portátil.",    
-    "cover": "game-boy.jpg"
-}</msg>
-<status status="PASS" endtime="20200508 00:29:08.809" starttime="20200508 00:29:08.808"></status>
+<msg timestamp="20200508 01:10:41.145" html="yes" level="INFO">Getting file '&lt;a href="file:///home/rhom09/robocamp/ninjapixel/backend/resources/fixtures/dk.json"&gt;/home/rhom09/robocamp/ninjapixel/backend/resources/fixtures/dk.json&lt;/a&gt;'.</msg>
+<msg timestamp="20200508 01:10:41.146" level="INFO">${file} = {
+    "title": "Donkey Kong",
+    "category": "Super Nintendo",
+    "producers": ["Nintendo", "Rare"],
+    "price": "199.99",
+    "description": "É pura diversão com este clássico de plataforma 2D.", ...</msg>
+<status status="PASS" endtime="20200508 01:10:41.146" starttime="20200508 01:10:41.145"></status>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <doc>Evaluates the given expression in Python and returns the result.</doc>
@@ -130,25 +128,30 @@ given `alias`</doc>
 <assign>
 <var>${json}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.810" level="INFO">${json} = {u'category': u'Console', u'description': u'Game port\xe1til.', u'title': u'GameBoy', u'price': u'99.99', u'cover': u'game-boy.jpg', u'producers': [u'Nintendo']}</msg>
-<status status="PASS" endtime="20200508 00:29:08.810" starttime="20200508 00:29:08.809"></status>
+<msg timestamp="20200508 01:10:41.147" level="INFO">${json} = {u'category': u'Super Nintendo', u'description': u'\xc9 pura divers\xe3o com este cl\xe1ssico de plataforma 2D.', u'title': u'Donkey Kong', u'price': u'199.99', u'cover': u'donkey-kong.jpg', u'produce...</msg>
+<status status="PASS" endtime="20200508 01:10:41.147" starttime="20200508 01:10:41.146"></status>
 </kw>
-<msg timestamp="20200508 00:29:08.810" level="INFO">${payload} = {u'category': u'Console', u'description': u'Game port\xe1til.', u'title': u'GameBoy', u'price': u'99.99', u'cover': u'game-boy.jpg', u'producers': [u'Nintendo']}</msg>
-<status status="PASS" endtime="20200508 00:29:08.810" starttime="20200508 00:29:08.807"></status>
+<msg timestamp="20200508 01:10:41.148" level="INFO">${payload} = {u'category': u'Super Nintendo', u'description': u'\xc9 pura divers\xe3o com este cl\xe1ssico de plataforma 2D.', u'title': u'Donkey Kong', u'price': u'199.99', u'cover': u'donkey-kong.jpg', u'produce...</msg>
+<status status="PASS" endtime="20200508 01:10:41.148" starttime="20200508 01:10:41.144"></status>
 </kw>
-<kw name="Post Product" library="services">
+<kw name="Product Existing" library="services">
 <arguments>
 <arg>${payload}</arg>
 <arg>${token}</arg>
 </arguments>
 <assign>
-<var>${product}</var>
+<var>${resp}</var>
 </assign>
+<kw name="Post Product" library="services">
+<arguments>
+<arg>${payload}</arg>
+<arg>${token}</arg>
+</arguments>
 <kw name="Remove Product By Title" library="db">
 <arguments>
 <arg>${payload['title']}</arg>
 </arguments>
-<status status="PASS" endtime="20200508 00:29:08.824" starttime="20200508 00:29:08.812"></status>
+<status status="PASS" endtime="20200508 01:10:41.182" starttime="20200508 01:10:41.151"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -159,8 +162,8 @@ given `alias`</doc>
 <assign>
 <var>&amp;{headers}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.826" level="INFO">&amp;{headers} = { Content-Type=application/json | Authorization=JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI ...</msg>
-<status status="PASS" endtime="20200508 00:29:08.827" starttime="20200508 00:29:08.825"></status>
+<msg timestamp="20200508 01:10:41.185" level="INFO">&amp;{headers} = { Content-Type=application/json | Authorization=JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0 ...</msg>
+<status status="PASS" endtime="20200508 01:10:41.186" starttime="20200508 01:10:41.183"></status>
 </kw>
 <kw name="Post Request" library="RequestsLibrary">
 <doc>Send a POST request on the session object found using the
@@ -174,50 +177,21 @@ given `alias`</doc>
 <assign>
 <var>${resp}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.935" level="INFO">POST Request : url=http://pixel-api:3333/products 
+<msg timestamp="20200508 01:10:41.217" level="INFO">POST Request : url=http://pixel-api:3333/products 
  path_url=/products 
- headers={'Content-Length': '151', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json', 'Authorization': u'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI'} 
- body={"category": "Console", "description": "Game port\u00e1til.", "title": "GameBoy", "price": "99.99", "cover": "game-boy.jpg", "producers": ["Nintendo"]} 
+ headers={'Content-Length': '221', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json', 'Authorization': u'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0'} 
+ body={"category": "Super Nintendo", "description": "\u00c9 pura divers\u00e3o com este cl\u00e1ssico de plataforma 2D.", "title": "Donkey Kong", "price": "199.99", "cover": "donkey-kong.jpg", "producers": ["Nintendo", "Rare"]} 
  </msg>
-<msg timestamp="20200508 00:29:08.935" level="INFO">POST Response : url=http://pixel-api:3333/products 
+<msg timestamp="20200508 01:10:41.218" level="INFO">POST Response : url=http://pixel-api:3333/products 
  status=200, reason=OK 
  body={
-    "id": 96
+    "id": 126
 } 
  </msg>
-<msg timestamp="20200508 00:29:08.936" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200508 00:29:08.936" starttime="20200508 00:29:08.827"></status>
+<msg timestamp="20200508 01:10:41.218" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" endtime="20200508 01:10:41.218" starttime="20200508 01:10:41.186"></status>
 </kw>
-<msg timestamp="20200508 00:29:08.937" level="INFO">${product} = &lt;Response [200]&gt;</msg>
-<status status="PASS" endtime="20200508 00:29:08.938" starttime="20200508 00:29:08.811"></status>
-</kw>
-<kw name="Convert To String" library="BuiltIn">
-<doc>Converts the given item to a Unicode string.</doc>
-<arguments>
-<arg>${product.json()['id']}</arg>
-</arguments>
-<assign>
-<var>${id}</var>
-</assign>
-<msg timestamp="20200508 00:29:08.939" level="INFO">${id} = 96</msg>
-<status status="PASS" endtime="20200508 00:29:08.939" starttime="20200508 00:29:08.938"></status>
-</kw>
-<kw name="Delete Product" library="services">
-<arguments>
-<arg>${id}</arg>
-<arg>${token}</arg>
-</arguments>
-<assign>
-<var>${resp}</var>
-</assign>
-<kw name="Create Session" library="RequestsLibrary">
-<doc>Create Session: create a HTTP session to a server</doc>
-<arguments>
-<arg>pixel</arg>
-<arg>Http://pixel-api:3333</arg>
-</arguments>
-<msg timestamp="20200508 00:29:08.941" level="INFO">Creating Session using : alias=pixel, url=Http://pixel-api:3333, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" endtime="20200508 00:29:08.942" starttime="20200508 00:29:08.941"></status>
+<status status="PASS" endtime="20200508 01:10:41.219" starttime="20200508 01:10:41.150"></status>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
@@ -228,50 +202,53 @@ given `alias`</doc>
 <assign>
 <var>&amp;{headers}</var>
 </assign>
-<msg timestamp="20200508 00:29:08.945" level="INFO">&amp;{headers} = { Content-Type=application/json | Authorization=JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI ...</msg>
-<status status="PASS" endtime="20200508 00:29:08.945" starttime="20200508 00:29:08.943"></status>
+<msg timestamp="20200508 01:10:41.220" level="INFO">&amp;{headers} = { Content-Type=application/json | Authorization=JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0 ...</msg>
+<status status="PASS" endtime="20200508 01:10:41.220" starttime="20200508 01:10:41.219"></status>
 </kw>
-<kw name="Delete Request" library="RequestsLibrary">
-<doc>Send a DELETE request on the session object found using the
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
 given `alias`</doc>
 <arguments>
 <arg>pixel</arg>
-<arg>/products/${id}</arg>
+<arg>/products</arg>
+<arg>data=${payload}</arg>
 <arg>headers=${headers}</arg>
 </arguments>
 <assign>
 <var>${resp}</var>
 </assign>
-<msg timestamp="20200508 00:29:09.023" level="INFO">DELETE Request : url=http://pixel-api:3333/products/96 
- path_url=/products/96 
- headers={'Content-Length': '0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json', 'Authorization': u'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwMzozNDowOC44MDIrMDA6MDAifQ.xoBDFksK-cS6h0wM0vogv9-b9qa7q5NWp2xpIXodRvI'} 
- body=None 
+<msg timestamp="20200508 01:10:41.242" level="INFO">POST Request : url=http://pixel-api:3333/products 
+ path_url=/products 
+ headers={'Content-Length': '221', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'User-Agent': 'python-requests/2.23.0', 'Connection': 'keep-alive', 'Content-Type': u'application/json', 'Authorization': u'JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwiZXhwaXJlIjoiMjAyMC0wNS0wOFQwNDoxNTo0MS4xMzkrMDA6MDAifQ.SN_ffrHo_GZ2IheAxDs_VmeN_tkL8pMrJCeZlvzIzA0'} 
+ body={"category": "Super Nintendo", "description": "\u00c9 pura divers\u00e3o com este cl\u00e1ssico de plataforma 2D.", "title": "Donkey Kong", "price": "199.99", "cover": "donkey-kong.jpg", "producers": ["Nintendo", "Rare"]} 
  </msg>
-<msg timestamp="20200508 00:29:09.024" level="INFO">DELETE Response : url=http://pixel-api:3333/products/96 
- status=204, reason=No Content 
- body=None 
+<msg timestamp="20200508 01:10:41.242" level="INFO">POST Response : url=http://pixel-api:3333/products 
+ status=409, reason=Conflict 
+ body={
+    "msg": "title must be unique"
+} 
  </msg>
-<msg timestamp="20200508 00:29:09.024" level="INFO">${resp} = &lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20200508 00:29:09.024" starttime="20200508 00:29:08.945"></status>
+<msg timestamp="20200508 01:10:41.242" level="INFO">${resp} = &lt;Response [409]&gt;</msg>
+<status status="PASS" endtime="20200508 01:10:41.242" starttime="20200508 01:10:41.220"></status>
 </kw>
-<msg timestamp="20200508 00:29:09.025" level="INFO">${resp} = &lt;Response [204]&gt;</msg>
-<status status="PASS" endtime="20200508 00:29:09.025" starttime="20200508 00:29:08.940"></status>
+<msg timestamp="20200508 01:10:41.243" level="INFO">${resp} = &lt;Response [409]&gt;</msg>
+<status status="PASS" endtime="20200508 01:10:41.243" starttime="20200508 01:10:41.148"></status>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <doc>Fails if response status code is different than the expected.</doc>
 <arguments>
-<arg>204</arg>
+<arg>409</arg>
 <arg>${resp}</arg>
 </arguments>
-<status status="PASS" endtime="20200508 00:29:09.027" starttime="20200508 00:29:09.026"></status>
+<status status="PASS" endtime="20200508 01:10:41.244" starttime="20200508 01:10:41.243"></status>
 </kw>
 <tags>
-<tag>success</tag>
+<tag>conflict</tag>
 </tags>
-<status status="PASS" endtime="20200508 00:29:09.027" critical="yes" starttime="20200508 00:29:08.700"></status>
+<status status="PASS" endtime="20200508 01:10:41.244" critical="yes" starttime="20200508 01:10:41.033"></status>
 </test>
-<doc>Pixel Api DELETE /products</doc>
-<status status="PASS" endtime="20200508 00:29:09.030" starttime="20200508 00:29:08.593"></status>
+<doc>Pixel Api POST /products</doc>
+<status status="PASS" endtime="20200508 01:10:41.245" starttime="20200508 01:10:40.923"></status>
 </suite>
 <statistics>
 <total>
@@ -279,10 +256,10 @@ given `alias`</doc>
 <stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
-<stat fail="0" pass="1">success</stat>
+<stat fail="0" pass="1">conflict</stat>
 </tag>
 <suite>
-<stat fail="0" id="s1" name="Delete Product" pass="1">Delete Product</stat>
+<stat fail="0" id="s1" name="Post Product" pass="1">Post Product</stat>
 </suite>
 </statistics>
 <errors>
