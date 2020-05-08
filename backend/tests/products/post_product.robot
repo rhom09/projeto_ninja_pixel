@@ -7,8 +7,11 @@ Create new product
     [Tags]          success
     # Token que está encapsulado em services.robot na keyword(Get Token)
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
+    # Encapsulado e convertido na Keyword(GET JSON), na camada services.robot
+    ${payload}=     Get Json        dk.json
+
     # POST REQUEST NA API atraves da keyword(POST PRODUCT) encapsulada em services.robot
-    ${resp}=        Post Product    dk.json                     ${token}
+    ${resp}=        Post Product    ${payload}                  ${token}
     # Validação
     Status Should Be    200     ${resp}
 
@@ -17,7 +20,8 @@ Duplicated Product
     [Tags]          conflict    
 
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
-    ${resp}=        Post Product    dk.json                     ${token}
+    ${payload}=     Get Json        dk.json
+    ${resp}=        Post Product    ${payload}                  ${token}
 
     Status Should Be    409     ${resp}
 
@@ -25,7 +29,8 @@ Required title
     [Tags]          bad_request
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
 
-    ${resp}=        Post Product    no_title.json               ${token}
+    ${payload}=     Get Json        no_title.json
+    ${resp}=        Post Product    ${payload}                  ${token}
     
     Status Should Be    400     ${resp}
     # Validação exata no campo certo
@@ -35,7 +40,8 @@ Required category
     [Tags]          bad_request
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
 
-    ${resp}=        Post Product    no_cat.json               ${token}
+    ${payload}=     Get Json        no_cat.json
+    ${resp}=        Post Product    ${payload}                  ${token}
     
     Status Should Be    400     ${resp}    
 
@@ -45,7 +51,8 @@ Required price
     [Tags]          bad_request
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
 
-    ${resp}=        Post Product    no_price.json               ${token}
+    ${payload}=     Get Json        no_price.json
+    ${resp}=        Post Product    ${payload}                  ${token}
     
     Status Should Be    400     ${resp}    
 

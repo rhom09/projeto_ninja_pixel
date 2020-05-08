@@ -7,7 +7,8 @@ Resource    ../../resources/services.robot
 Get Unique Product
 
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
-    ${product}=     Post Product    get_unique.json             ${token}
+    ${payload}=     Get Json        get_unique.json
+    ${product}=     Post Product    ${payload}                  ${token}
 
     ${id}=          Convert To String   ${product.json()['id']}
 
@@ -15,4 +16,4 @@ Get Unique Product
 
     Status Should Be    200     ${resp}
 
-    Should Be Equal     ${resp.json()['title']}     GameBoy
+    Should Be Equal     ${resp.json()['title']}     ${payload['title']}

@@ -8,6 +8,21 @@ Library     OperatingSystem
 Library     libs/db.py
 
 *** Keywords ***
+### Helpers ###
+# Coverter o arquivo json
+Get Json
+    [Arguments]     ${json_file}
+
+    ### PAYLOAD VINDO DO ARQUIVO JSON ###
+    # get file(keyword) para carregar arquivos em memorias, e como é GET sempre vai retornar algo
+    # Por isso guardamos em uma variavel(${file})
+    ${file}=         Get File        ${EXECDIR}/resources/fixtures/${json_file}
+    # Como API aceita o formato json nós convertemos o $file em json para mandar para a API
+    ${json}=         evaluate        json.loads($file)   json
+
+    [Return]    ${json}
+
+
 Get Token
     [Arguments]     ${email}        ${pass}
     
@@ -34,14 +49,7 @@ Post Token
 
 # Keyword para encapsular o post product
 Post Product
-    [Arguments]     ${json_file}    ${token}
-
-    ### PAYLOAD VINDO DO ARQUIVO JSON ###
-    # get file(keyword) para carregar arquivos em memorias, e como é GET sempre vai retornar algo
-    # Por isso guardamos em uma variavel(${file})
-    ${file}=            Get File        ${EXECDIR}/resources/fixtures/${json_file}
-    # Como API aceita o formato json nós convertemos o $file em json para mandar para a API
-    ${payload}=         evaluate        json.loads($file)   json
+    [Arguments]     ${payload}    ${token}
 
     # Remove os dados do DB
     Remove Product By Title             ${payload['title']}
