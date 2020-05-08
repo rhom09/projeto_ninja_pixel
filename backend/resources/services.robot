@@ -5,6 +5,8 @@ Library     RequestsLibrary
 Library     Collections
 Library     OperatingSystem
 
+Library     libs/db.py
+
 *** Keywords ***
 Get Token
     [Arguments]     ${email}        ${pass}
@@ -40,6 +42,10 @@ Post Product
     ${file}=            Get File        ${EXECDIR}/resources/fixtures/${json_file}
     # Como API aceita o formato json nós convertemos o $file em json para mandar para a API
     ${payload}=         evaluate        json.loads($file)   json
+
+    # Remove os dados do DB
+    Remove Product By Title             ${payload['title']}
+
     # Headers com content-type e authorization
     &{headers}=         Create Dictionary       Content-Type=application/json   Authorization=JWT ${token}
 

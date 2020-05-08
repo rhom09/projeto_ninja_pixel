@@ -13,6 +13,15 @@ Create new product
     # Validação
     Status Should Be    200     ${resp}
 
+### DESAFIO ###
+Duplicated Product
+    [Tags]          conflict    
+
+    ${token}=       Get Token       papito@ninjapixel.com       pwd123
+    ${resp}=        Post Product    dk.json                     ${token}
+
+    Status Should Be    409     ${resp}
+
 Required title
     [Tags]          bad_request
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
