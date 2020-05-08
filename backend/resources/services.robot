@@ -71,6 +71,15 @@ Get Product
     ${resp}             Get Request    pixel    /products/${id}     headers=${headers}
     [Return]    ${resp}
 
+Delete Product    
+    [Arguments]     ${id}       ${token}
+
+    Create Session      pixel       Http://pixel-api:3333    
+
+    &{headers}=         Create Dictionary       Content-Type=application/json   Authorization=JWT ${token}
+
+    ${resp}             Delete Request    pixel    /products/${id}     headers=${headers}
+    [Return]    ${resp}
 
 
 
