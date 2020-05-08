@@ -1,6 +1,5 @@
 *** Settings ***
-Documentation       Testes da Rota /products da Pixel API
-
+Documentation       Pixel Api POST /products
 Resource    ../../resources/services.robot
 
 *** Test Cases ***

@@ -52,8 +52,16 @@ Post Product
     ${resp}             Post Request    pixel   /products   data=${payload}     headers=${headers}
     [Return]            ${resp}
 
+### GET ###
+Get Product
+    [Arguments]     ${id}       ${token}
 
+    Create Session      pixel       Http://pixel-api:3333    
 
+    &{headers}=         Create Dictionary       Content-Type=application/json   Authorization=JWT ${token}
+
+    ${resp}             Get Request    pixel    /products/${id}     headers=${headers}
+    [Return]    ${resp}
 
 
 
