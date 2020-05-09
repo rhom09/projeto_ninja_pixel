@@ -8,7 +8,7 @@ Delete Unique Product
     [Tags]      success
 
     ${token}=       Get Token       papito@ninjapixel.com       pwd123
-    ${payload}=     Get Json        get_unique.json
+    ${payload}=     Get Json        delete.json
     ${product}=     Post Product    ${payload}                  ${token}
 
     ${id}=          Convert To String   ${product.json()['id']}

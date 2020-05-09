@@ -1,0 +1,8 @@
+{
+    "title": "sega",
+    "category": "Console",
+    "producers": ["Sega"],
+    "price": "179.99",
+    "description": "Game bacana.",    
+    "cover": "sega.jpg"
+}
