@@ -16,7 +16,7 @@ Get Json
     ### PAYLOAD VINDO DO ARQUIVO JSON ###
     # get file(keyword) para carregar arquivos em memorias, e como é GET sempre vai retornar algo
     # Por isso guardamos em uma variavel(${file})
-    ${file}=         Get File        ${EXECDIR}/resources/fixtures/${json_file}
+    ${file}=         Get File        ${EXECDIR}/backend/resources/fixtures/${json_file}
     # Como API aceita o formato json nós convertemos o $file em json para mandar para a API
     ${json}=         evaluate        json.loads($file)   json
 
