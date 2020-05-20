@@ -48,7 +48,7 @@ Select Category
 
 Input Producers
     [Arguments]     ${producers}
-
+    # FOR atualizado.(Resolução do Desafio)
     # Para os produtores como é um array devemos fazer um FOR(robot) para capturar os dados
     FOR   ${item}     IN      @{producers}
         Log     ${item}
