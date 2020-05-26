@@ -1,7 +1,7 @@
 pipeline {
    agent {
        docker {
-           image 'python'
+           image 'papitoio/robotwd'
            args '--network=skynet'
        }
    }
