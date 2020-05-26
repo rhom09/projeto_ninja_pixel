@@ -1,12 +1,17 @@
 *** Settings ***
 Documentation       Este arquivo implementa funções e elementos da página Produtos
 
+*** Variables ***
+${BUTTON_PRODUCT_ADD}       class:product-add
+
 *** Keywords ***
 Go To Product Form
     # Clica no botão add produto
-    Set Selenium Speed   1
-    Click Element       class:product-add
-    Set Selenium Speed   0
+    # Set Selenium Speed   1
+    Wait Until Element Is Visible   ${BUTTON_PRODUCT_ADD}
+    Click Element                   ${BUTTON_PRODUCT_ADD}
+    Wait Until Page Contains        Novo Produto
+    # Set Selenium Speed   0
 
 Create New Product
     [Arguments]     ${product_json}
