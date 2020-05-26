@@ -16,7 +16,7 @@ pipeline {
       stage('Test') {
           steps {
              echo 'Executando testes de regressão'
-             sh 'robot -d ./logs backend/tests/'
+             sh 'robot -d ./logs -i login frontend/tests/'
           }
           post {
              always {
@@ -31,7 +31,7 @@ pipeline {
       }
       stage('Production') {
           steps {
-             echo 'API OK em produção!' 
+             echo 'WebApp OK em produção!' 
           }
       }
    }

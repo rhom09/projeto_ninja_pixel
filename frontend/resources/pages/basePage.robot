@@ -10,7 +10,7 @@ ${ALERT_INFO}       class:alert-info
 
 *** Keywords ***
 Open Session
-    Open Chrome
+    Open Chrome Headless
     # Avisa ao selenium que ele tem 10s para achar o elemento na pagina
     Set Selenium Implicit Wait  10
 
@@ -35,3 +35,6 @@ Product Form Session
 
 Open Chrome
     Open Browser   ${base_url}/login    chrome
+
+Open Chrome Headless
+    Open Browser   ${base_url}/login    headlesschrome    
