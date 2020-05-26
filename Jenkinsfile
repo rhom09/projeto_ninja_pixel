@@ -16,7 +16,7 @@ pipeline {
       stage('Test') {
           steps {
              echo 'Executando testes de regressão'
-             sh 'robot -d ./logs -i login frontend/tests/'
+             sh 'robot -d ./logs frontend/tests/login.robot'
           }
           post {
              always {
