@@ -10,12 +10,12 @@ ${ALERT_INFO}       class:alert-info
 
 *** Keywords ***
 Open Session
-    Run Keywords if     "${browser}" == "chrome"
+    Run Keyword if     "${browser}" == "chrome"
     ...     Open Chrome
 
-    Run Keywords if     "${browser}" == "headless"
+    Run Keyword if     "${browser}" == "headless"
     ...     Open Chrome Headless
-    
+
     Set Window Size     1200    800
     # Avisa ao selenium que ele tem 10s para achar o elemento na pagina
     Set Selenium Implicit Wait  10
